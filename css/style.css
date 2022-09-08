@@ -1,0 +1,174 @@
+@font-face {
+    src: url(../font/JosefinSans-VariableFont_wght.ttf);
+    font-family: JosefinSans;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: JosefinSans;
+    letter-spacing: 1px;
+}
+
+
+html[theme="dark"]{
+    --background: #222222;
+    --textColor: #dde9e8;
+    --themIconBg: #3a3a3a;
+    --themIconTx: #bdbdbd;
+    --iconFilter: invert(0);
+}
+
+html[theme="light"]{
+    --background: #fafafa;
+    --textColor: #131313;
+    --themIconBg: #c8d6d5;
+    --themIconTx: #8a999c;
+    --iconFilter: invert(.8);
+}
+
+::-webkit-scrollbar{
+    width: 7px;
+    background: var(--textColor);
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--background);
+}
+
+::selection{
+    background: var(--textColor) !important;
+    color: var(--background) !important;
+}
+
+body{
+    min-height: 100vh;
+    background: var(--background);
+    overflow-x: hidden;
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav img[alt="logo"]{
+    pointer-events: none;
+    width: 40px;
+    filter: var(--iconFilter);
+}
+
+nav div.navItems{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav div.navItems a{
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--textColor);
+    transition: .3s;
+}
+
+nav div.navItems .theme, nav button.navBtn{
+    all: unset;
+    aspect-ratio: 1.3;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: var(--themIconBg);
+    color: var(--themIconTx);
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+nav button.navBtn{
+    position: relative;
+}
+
+nav button.navBtn{
+    font-size: 20px !important;
+}
+
+nav div.navItems .theme i, nav button.navBtn i, div.navBtnItems a i{
+    pointer-events: none;
+}
+
+div.navBtnContainer{
+    position: relative;
+}
+
+div.navBtnItems{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+    width: 45.5px;
+    opacity: 0;
+    height: 0;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    background: var(--themIconBg);
+    border-radius: 6px;
+    padding: 5px 5px;
+    transition: .3s;
+}
+
+div.navBtnItems.width{
+    width: 106px;
+}
+
+div.navBtnItems.open{
+    height: 165px;
+    opacity: 1;
+}
+
+div.navBtnItems a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    aspect-ratio: 1;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+div.navBtnItems a .animateText{
+    color: var(--themIconTx);
+    font-size: 18px;
+    transform: translateY(50px);
+    transition: .7s;
+    transition-delay: .3s;
+    pointer-events: none;
+}
+
+div.navBtnItems a h2.animateText{
+    padding-top: 5px;
+}
+
+div.navBtnItems.open  a .animateText{
+    transform: translateY(0);
+}
+
+div.navBtnItems a:hover
+{
+    background: var(--background);
+}
+
+a.active{
+    background: var(--background);
+}
